@@ -11,11 +11,10 @@ const sequelize = new Sequelize(
 );
 
 export const migrator = new Umzug({
-
   migrations: {
     glob: [
       "migrations/*.{js,cjs,mjs}",
-      { cwd: path.dirname(import.meta.url.replace("e:///", "")) },
+      { cwd: path.dirname(import.meta.url.replace("file:///", "")) },
     ],
   },
   context: { sequelize, DataTypes },
